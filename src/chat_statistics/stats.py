@@ -37,9 +37,13 @@ class ChatStatistics:
 
 
     #generate word cloud
-    def generate_word_cloud(self, output_dir: Union[str, Path], 
-    width: int= 800, height: int =1200,
-    max_font_size = 250):
+    def generate_word_cloud ( 
+        self,
+        output_dir: Union[str, Path], 
+        width: int= 800, height: int =1200,
+        max_font_size: int = 250,
+        background_color : str = "white",
+        ):
         """Generates a word cloud from the chat data
         :param output_dir: path to output directory for word cloud image
         """
@@ -64,7 +68,7 @@ class ChatStatistics:
             height = 1200,
             width= 1200,
             font_path= str(DATA_DIR / 'BHoma.ttf'),
-            background_color='white'
+            background_color= background_color
         ).generate(text_content)
         
         logger.info(f"Saving word cloud to {output_dir}")
